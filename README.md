@@ -8,7 +8,7 @@ Project made for Radium Rocket
 
 ## Made by:
 
-Alejandro Godoy.
+Alejando Godoy.
 Franco de Battista.
 Alfonso Dalix.
 Giuliano Cetto.
