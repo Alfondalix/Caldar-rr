@@ -1,0 +1,23 @@
+{
+  "name": "caldr-groupt7",
+  "version": "1.0.0",
+  "description": "** Version 1.0.0 **",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alfondalix/Caldar-rr.git"
+  },
+  "author": "Group-t7",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alfondalix/Caldar-rr/issues"
+  },
+  "homepage": "https://github.com/Alfondalix/Caldar-rr#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
