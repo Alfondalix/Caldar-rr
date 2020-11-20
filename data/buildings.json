@@ -3,206 +3,143 @@
         "idBuilding":1,
         "name":"Desirée",
         "address":"30780 Londonderry Road",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":1
-        }]
+        "boilers":[1, 2]
     },
     {
         "idBuilding":2,
         "name":"Cunégonde",
         "address":"82 Rockefeller Court",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":1
-        }],
+        "boilers":[3, 4],
         "idCompany":1
     },
     {
         "idBuilding":3,
         "name":"Néhémie",
         "address":"814 Vermont Parkway",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":4
-        }]
+        "boilers":[5, 6]
     },
     {
         "idBuilding":4,
         "name":"André",
         "address":"0965 Northport Terrace",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":2
-        }],
+        "boilers":[7, 8],
         "idCompany":1
     },
     {
         "idBuilding":5,
         "name":"Håkan",
         "address":"0894 Waubesa Avenue",
-        "boilers":[{
-            "nOfBoilers":3,
-            "idBoiler":2
-        }],
+        "boilers":[9, 10],
         "idCompany":1
     },
     {
         "idBuilding":6,
         "name":"Eliès",
         "address":"12712 Portage Court",
-        "boilers":[{
-            "nOfBoilers":1,
-            "idBoiler":2
-        }]
+        "boilers":[11, 12]
     },
     {
         "idBuilding":7,
         "name":"Laurélie",
         "address":"46376 Dryden Center",
-        "boilers":[{
-            "nOfBoilers":1,
-            "idBoiler":2
-        }]
+        "boilers":[13, 14]
     },
     {
         "idBuilding":8,
         "name":"Léonore",
         "address":"46 Warrior Park",
-        "boilers":[{
-            "nOfBoilers":1,
-            "idBoiler":2
-        }],
+        "boilers":[15],
         "idCompany":2
     },
     {
         "idBuilding":9,
         "name":"Mélodie",
         "address":"9289 Hoard Park",
-        "boilers":[{
-            "nOfBoilers":3,
-            "idBoiler":2
-        }],
+        "boilers":[16, 17],
         "idCompany":2
     },
     {
         "idBuilding":10,
         "name":"Gösta",
         "address":"4 Stang Center",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":2
-        }],
+        "boilers":[18, 19],
         "idCompany":2
     },
     {
         "idBuilding":11,
         "name":"Lyséa",
         "address":"42540 Transport Parkway",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":1
-        }],
+        "boilers":[20, 21],
         "idCompany":2
     },
     {
         "idBuilding":12,
         "name":"Liè",
         "address":"62433 Almo Avenue",
-        "boilers":[{
-            "nOfBoilers":3,
-            "idBoiler":1
-        }],
+        "boilers":[22, 23],
         "idCompany":3
     },
     {
         "idBuilding":13,
         "name":"Célia",
         "address":"2 High Crossing Circle",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":1
-        }],
+        "boilers":[24, 25],
         "idCompany":3
     },
     {
         "idBuilding":14,
         "name":"Bérengère",
         "address":"600 Fremont Trail",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":1
-        }],
+        "boilers":[26, 27],
         "idCompany":4
     },
     {
         "idBuilding":15,
         "name":"Thérèsa",
         "address":"14566 Weeping Birch Alley",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":1
-        }],
+        "boilers":[28, 29],
         "idCompany":4
     },
     {
         "idBuilding":16,
         "name":"Céline",
         "address":"572 Monica Park",
-        "boilers":[{
-            "nOfBoilers":1,
-            "idBoiler":2
-        }],
+        "boilers":[30, 31],
         "idCompany":4
     },
     {
         "idBuilding":17,
         "name":"Marlène",
         "address":"80956 Northland Road",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":2
-        }],
+        "boilers":[32, 33],
         "idCompany":4
     },
     {
         "idBuilding":18,
         "name":"Jú",
         "address":"85 Becker Terrace",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":2
-        }],
+        "boilers":[34, 35],
         "idCompany":4
     },
     {
         "idBuilding":19,
         "name":"Séverine",
         "address":"92 Mallard Hill",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":1
-        }],
+        "boilers":[36, 37],
         "idCompany":4
     },
     {
         "idBuilding":20,
         "name":"Célia",
         "address":"302 Clarendon Trail",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":1
-        }],
+        "boilers":[38, 39],
         "idCompany":5
     },
     {
         "idBuilding":21,
         "name":"Erwéi",
         "address":"65861 Packers Terrace",
-        "boilers":[{
-            "nOfBoilers":2,
-            "idBoiler":2
-        }],
+        "boilers":[40],
         "idCompany":5
     }
 ]
