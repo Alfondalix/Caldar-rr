@@ -1,5 +1,5 @@
-{
-    "building1":{
+[
+    {
         "idBuilding":1,
         "name":"Desirée",
         "address":"30780 Londonderry Road",
@@ -8,7 +8,7 @@
             "idBoiler":1
         }]
     },
-    "building2":{
+    {
         "idBuilding":2,
         "name":"Cunégonde",
         "address":"82 Rockefeller Court",
@@ -18,7 +18,7 @@
         }],
         "idCompany":1
     },
-    "building3":{
+    {
         "idBuilding":3,
         "name":"Néhémie",
         "address":"814 Vermont Parkway",
@@ -27,7 +27,7 @@
             "idBoiler":4
         }]
     },
-    "building4":{
+    {
         "idBuilding":4,
         "name":"André",
         "address":"0965 Northport Terrace",
@@ -37,7 +37,7 @@
         }],
         "idCompany":1
     },
-    "building5":{
+    {
         "idBuilding":5,
         "name":"Håkan",
         "address":"0894 Waubesa Avenue",
@@ -47,7 +47,7 @@
         }],
         "idCompany":1
     },
-    "building6":{
+    {
         "idBuilding":6,
         "name":"Eliès",
         "address":"12712 Portage Court",
@@ -56,7 +56,7 @@
             "idBoiler":2
         }]
     },
-    "building7":{
+    {
         "idBuilding":7,
         "name":"Laurélie",
         "address":"46376 Dryden Center",
@@ -65,7 +65,7 @@
             "idBoiler":2
         }]
     },
-    "building8":{
+    {
         "idBuilding":8,
         "name":"Léonore",
         "address":"46 Warrior Park",
@@ -75,7 +75,7 @@
         }],
         "idCompany":2
     },
-    "building9":{
+    {
         "idBuilding":9,
         "name":"Mélodie",
         "address":"9289 Hoard Park",
@@ -85,7 +85,7 @@
         }],
         "idCompany":2
     },
-    "building10":{
+    {
         "idBuilding":10,
         "name":"Gösta",
         "address":"4 Stang Center",
@@ -95,7 +95,7 @@
         }],
         "idCompany":2
     },
-    "building11":{
+    {
         "idBuilding":11,
         "name":"Lyséa",
         "address":"42540 Transport Parkway",
@@ -105,7 +105,7 @@
         }],
         "idCompany":2
     },
-    "building12":{
+    {
         "idBuilding":12,
         "name":"Liè",
         "address":"62433 Almo Avenue",
@@ -115,7 +115,7 @@
         }],
         "idCompany":3
     },
-    "building13":{
+    {
         "idBuilding":13,
         "name":"Célia",
         "address":"2 High Crossing Circle",
@@ -125,7 +125,7 @@
         }],
         "idCompany":3
     },
-    "building14":{
+    {
         "idBuilding":14,
         "name":"Bérengère",
         "address":"600 Fremont Trail",
@@ -135,7 +135,7 @@
         }],
         "idCompany":4
     },
-    "building15":{
+    {
         "idBuilding":15,
         "name":"Thérèsa",
         "address":"14566 Weeping Birch Alley",
@@ -145,7 +145,7 @@
         }],
         "idCompany":4
     },
-    "building16":{
+    {
         "idBuilding":16,
         "name":"Céline",
         "address":"572 Monica Park",
@@ -155,7 +155,7 @@
         }],
         "idCompany":4
     },
-    "building17":{
+    {
         "idBuilding":17,
         "name":"Marlène",
         "address":"80956 Northland Road",
@@ -165,7 +165,7 @@
         }],
         "idCompany":4
     },
-    "building18":{
+    {
         "idBuilding":18,
         "name":"Jú",
         "address":"85 Becker Terrace",
@@ -175,7 +175,7 @@
         }],
         "idCompany":4
     },
-    "building19":{
+    {
         "idBuilding":19,
         "name":"Séverine",
         "address":"92 Mallard Hill",
@@ -185,7 +185,7 @@
         }],
         "idCompany":4
     },
-    "building20":{
+    {
         "idBuilding":20,
         "name":"Célia",
         "address":"302 Clarendon Trail",
@@ -195,7 +195,7 @@
         }],
         "idCompany":5
     },
-    "building21":{
+    {
         "idBuilding":21,
         "name":"Erwéi",
         "address":"65861 Packers Terrace",
@@ -205,5 +205,5 @@
         }],
         "idCompany":5
     }
-}
+]
 
