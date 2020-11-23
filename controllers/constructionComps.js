@@ -4,6 +4,8 @@ const express = require('express');
 const path = require('path');
 const data = require('../data/constructionComps.json')
 
+const router = express.Router();
+
 const idFilter = req => data => data.idCompany === parseInt(req.params.idCompany);
 const nameFilter = req => data => data.name === req.params.name;
 
@@ -11,12 +13,12 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // GET ALL
-app.get('/getAllCompanies', (req, res) => {
+router.get('/getAllCompanies', (req, res) => {
     res.send(data);
 });
 
 // GET BY ID
-app.get('/getCompanyById/:idCompany', (req, res) => {
+router.get('/getCompanyById/:idCompany', (req, res) => {
     const found = data.some(idFilter(req));
 
     if (found) {
@@ -27,7 +29,7 @@ app.get('/getCompanyById/:idCompany', (req, res) => {
 });
 
 // DELETE COMPANY
-app.delete('/Company/delete/:idCompany', (req, res) => {
+router.delete('/Company/delete/:idCompany', (req, res) => {
     const found = data.some(idFilter(req));
 
     if (found) {
@@ -42,7 +44,7 @@ app.delete('/Company/delete/:idCompany', (req, res) => {
 
 // GET BY CLASS
 
-app.get('/getCompanyByCategory/:name', (req, res) => {
+router.get('/getCompanyByCategory/:name', (req, res) => {
     const found = data.some(nameFilter(req));
 
     if (found) {
@@ -53,4 +55,6 @@ app.get('/getCompanyByCategory/:name', (req, res) => {
 });
 
 app.listen(port, () => console.log('corriendo en 5000'));
+
+module.exports = router;
 
