@@ -15,6 +15,11 @@ app.get('/getBoylerTypesByName/:name',[], (request,response) =>{
     response.json(boylerTypesData.filter(boylertype => boylertype.name === name));
 })
 
+app.get('/getBoylerTypesById/:id',[], (request,response) =>{
+    const id = request.params.id;
+    response.json(boylerTypesData.filter(boylertype => boylertype.idType == id));
+})
+
 module.exports = app
 
 
