@@ -7,6 +7,9 @@ app.get('/', (req, res)=>{
     res.send('<h1>Hello Group</h1>');
 });
 
+//Boylers route
+app.use('/boylers', require ('./controllers/boylers'));
+
 app.listen(port, ()=>{
     console.log(`Listening on port: ${port}`);
 });
