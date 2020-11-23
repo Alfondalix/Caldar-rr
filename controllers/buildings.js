@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const buildings = require('../data/buildings.json');
 
-//get all buildings
+const fs = require('fs');
+//get all buildings.
 router.get('/', (req, res)=> res.send(buildings));
 
-//get building by id
+//get building by id.
 router.get('/by-id/:id', (req, res)=>{
     const found = buildings.some(building => building.idBuilding === parseInt(req.params.id));
     
@@ -17,7 +18,7 @@ router.get('/by-id/:id', (req, res)=>{
     }
 });
 
-// get para ver si tiene company o no, onda filtro, respondiendo a la consigna b 2.
+// get building by category (particular or company).
 router.get('/by-category/:category', (req, res)=>{
     const found = buildings.some(building => building.category === req.params.category);
 
@@ -29,7 +30,11 @@ router.get('/by-category/:category', (req, res)=>{
     }
 })
 
-//Borrar un recurso de la lista y sobreescribir el archivo JSON para actualizarlo
-router.delete('/')
+// delete building and update json file.
+router.delete('/delete-by-id/:id', (req, res)=>{
+    const data = JSON.parse(fs.readFileSync('data/buildings.json'));
+    fs.writeFileSync('data/buildings.json', JSON.stringify(data.filter(building=> building.idBuilding !== parseInt(req.params.id))));
+    res.json(data.filter(building=> building.idBuilding !== parseInt(req.params.id)));
+})
 
 module.exports = router;
