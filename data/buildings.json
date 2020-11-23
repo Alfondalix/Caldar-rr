@@ -3,144 +3,165 @@
         "idBuilding":1,
         "name":"Desirée",
         "address":"30780 Londonderry Road",
-        "boilers":[1, 2]
+        "boilers":[1, 2],
+        "category": "particular"
     },
     {
         "idBuilding":2,
         "name":"Cunégonde",
         "address":"82 Rockefeller Court",
         "boilers":[3, 4],
-        "idCompany":1
+        "idCompany":1,
+        "category": "company"
     },
     {
         "idBuilding":3,
         "name":"Néhémie",
         "address":"814 Vermont Parkway",
-        "boilers":[5, 6]
+        "boilers":[5, 6],
+        "category": "particular"
     },
     {
         "idBuilding":4,
         "name":"André",
         "address":"0965 Northport Terrace",
         "boilers":[7, 8],
-        "idCompany":1
+        "idCompany":1,
+        "category": "company"
     },
     {
         "idBuilding":5,
         "name":"Håkan",
         "address":"0894 Waubesa Avenue",
         "boilers":[9, 10],
-        "idCompany":1
+        "idCompany":1,
+        "category": "company"
     },
     {
         "idBuilding":6,
         "name":"Eliès",
         "address":"12712 Portage Court",
-        "boilers":[11, 12]
+        "boilers":[11, 12],
+        "category": "particular"
     },
     {
         "idBuilding":7,
         "name":"Laurélie",
         "address":"46376 Dryden Center",
-        "boilers":[13, 14]
+        "boilers":[13, 14],
+        "category": "particular"
     },
     {
         "idBuilding":8,
         "name":"Léonore",
         "address":"46 Warrior Park",
         "boilers":[15],
-        "idCompany":2
+        "idCompany":2,
+        "category": "company"
     },
     {
         "idBuilding":9,
         "name":"Mélodie",
         "address":"9289 Hoard Park",
         "boilers":[16, 17],
-        "idCompany":2
+        "idCompany":2,
+        "category": "company"
     },
     {
         "idBuilding":10,
         "name":"Gösta",
         "address":"4 Stang Center",
         "boilers":[18, 19],
-        "idCompany":2
+        "idCompany":2,
+        "category": "company"
     },
     {
         "idBuilding":11,
         "name":"Lyséa",
         "address":"42540 Transport Parkway",
         "boilers":[20, 21],
-        "idCompany":2
+        "idCompany":2,
+        "category": "company"
     },
     {
         "idBuilding":12,
         "name":"Liè",
         "address":"62433 Almo Avenue",
         "boilers":[22, 23],
-        "idCompany":3
+        "idCompany":3,
+        "category": "company"
     },
     {
         "idBuilding":13,
         "name":"Célia",
         "address":"2 High Crossing Circle",
         "boilers":[24, 25],
-        "idCompany":3
+        "idCompany":3,
+        "category": "company"
     },
     {
         "idBuilding":14,
         "name":"Bérengère",
         "address":"600 Fremont Trail",
         "boilers":[26, 27],
-        "idCompany":4
+        "idCompany":4,
+        "category": "company"
     },
     {
         "idBuilding":15,
         "name":"Thérèsa",
         "address":"14566 Weeping Birch Alley",
         "boilers":[28, 29],
-        "idCompany":4
+        "idCompany":4,
+        "category": "company"
     },
     {
         "idBuilding":16,
         "name":"Céline",
         "address":"572 Monica Park",
         "boilers":[30, 31],
-        "idCompany":4
+        "idCompany":4,
+        "category": "company"
     },
     {
         "idBuilding":17,
         "name":"Marlène",
         "address":"80956 Northland Road",
         "boilers":[32, 33],
-        "idCompany":4
+        "idCompany":4,
+        "category": "company"
     },
     {
         "idBuilding":18,
         "name":"Jú",
         "address":"85 Becker Terrace",
         "boilers":[34, 35],
-        "idCompany":4
+        "idCompany":4,
+        "category": "company"
     },
     {
         "idBuilding":19,
         "name":"Séverine",
         "address":"92 Mallard Hill",
         "boilers":[36, 37],
-        "idCompany":4
+        "idCompany":4,
+        "category": "company"
     },
     {
         "idBuilding":20,
         "name":"Célia",
         "address":"302 Clarendon Trail",
         "boilers":[38, 39],
-        "idCompany":5
+        "idCompany":5,
+        "category": "company"
     },
     {
         "idBuilding":21,
         "name":"Erwéi",
         "address":"65861 Packers Terrace",
         "boilers":[40],
-        "idCompany":5
+        "idCompany":5,
+        "category": "company"
     }
 ]
 
