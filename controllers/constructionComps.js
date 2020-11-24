@@ -29,7 +29,7 @@ router.get('/getCompanyById/:idCompany', (req, res) => {
 });
 
 // DELETE COMPANY
-router.delete('/Company/delete/:idCompany', (req, res) => {
+router.delete('/deleteCompanyById/:idCompany', (req, res) => {
     const found = data.some(idFilter(req));
 
     if (found) {
@@ -53,8 +53,6 @@ router.get('/getCompanyByCategory/:name', (req, res) => {
         res.status(400).send({ msg: `Name not founded.` });
     }
 });
-
-app.listen(port, () => console.log('corriendo en 5000'));
 
 module.exports = router;
 
