@@ -7,7 +7,7 @@ app.get('/', (req, res)=>{
     res.send('<h1>Hello Group</h1>');
 });
 
-app.use('/Companies', require('./controllers/constructionComps'));
+app.use('/Companies', require('./controllers/construction-companies.js'));
 
 app.listen(port, ()=>{
     console.log(`Listening on port: ${port}`);
