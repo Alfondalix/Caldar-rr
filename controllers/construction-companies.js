@@ -1,8 +1,6 @@
-const { request } = require("express");
-
 const express = require('express');
-const path = require('path');
 const data = require('../data/construction-companies.json')
+const fs = require('fs');
 
 const router = express.Router();
 
@@ -31,19 +29,16 @@ router.get('/getCompanyById/:idCompany', (req, res) => {
 // DELETE COMPANY
 router.delete('/deleteCompanyById/:idCompany', (req, res) => {
     const found = data.some(idFilter(req));
-
+    
     if (found) {
-        res.json({
-            msg: 'Company deleted',
-            data: data.filter(member => !idFilter(req)(member))
-        });
+        fs.writeFileSync('data/construction-companies.json', JSON.stringify(data.filter(company=> company.idCompany !== parseInt(req.params.idCompany))));
+        res.json(data.filter(company => company.idCompany !== parseInt(req.params.idCompany))); 
     } else {
     res.status(400).json({ msg: `No Company with the id of ${req.params.idCompany}` });
     }
 });
 
 // GET BY CLASS
-
 router.get('/getCompanyByCategory/:name', (req, res) => {
     const found = data.some(nameFilter(req));
 
@@ -55,4 +50,3 @@ router.get('/getCompanyByCategory/:name', (req, res) => {
 });
 
 module.exports = router;
-
