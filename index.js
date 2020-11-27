@@ -8,7 +8,6 @@ app.get('/', (req, res) => {
     res.send('<h1>Hello Group</h1>');
 });
 
-// Buildings routes
 app.use('/api', routes);
 
 app.listen(port, () => {
