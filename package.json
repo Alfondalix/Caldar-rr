@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Alfondalix/Caldar-rr#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.17"
   }
 }
