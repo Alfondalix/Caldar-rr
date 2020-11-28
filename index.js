@@ -1,6 +1,8 @@
 const express = require('express');
 const routes = require('./server/routes');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+require('dotenv').config()
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -25,6 +27,7 @@ mongoose.connect(
 });
 
 app.use('/api', routes);
+
 
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
