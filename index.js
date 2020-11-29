@@ -1,9 +1,14 @@
 const express = require('express');
 const routes = require('./server/routes');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
