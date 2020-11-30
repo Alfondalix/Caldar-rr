@@ -1,106 +1,94 @@
-const db = require("../models");
-const Boiler = db.boiler;
+const Bioler = require('../models/boilers.js');
 
-// Create an Save a new Boiler
-exports.create = (req, res) => {
-    // Validate request
-    if (!req.body.id || !req.body.description || req.body.idType);
-    res.status(400).send({ message: "Content can not be empty!"});
-    return;
+// Get all Biolers
+exports.findAll = (req, res) => {
+  Bioler.find({})
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: err.message || "Ups! something went wrong"
+      });
+    });
 }
 
-// Create a Boiler
-const boiler = new Boiler({
+// Create a new Bioler
+exports.create = (req, res) => {
+  if(!req.body.id || !req.body.description || !req.body.idType) {
+    res.status(400).send({ message: "Content can't be empty "});
+  }
+  const bioler = new Bioler({
     id: req.body.id,
     description: req.body.description,
     idType: req.body.idType,
-});
-
-// Save Boiler in the database
-boiler
-    .save(boiler)
+  });
+  bioler
+    .save(bioler)
     .then(data => {
-        res.send(data);
+      res.send(data);
     })
     .catch(err => {
-        res.status(500).send({
-            message:
-            err.message || "some error ocurred while creating the Boiler"
-        });
+      res.status(500).send({
+        message:
+          err.message || "Something went wrong while creating a new Bioler"
+      });
     });
+}
 
-// Retrieve all Boilers from the database
-exports.findAll = (req, res) => {
-    Boiler.find({})
-    .then(data => {
-        res.send(data);
-    })
-    .catch(err => {
-        res.status(500).send({
-            message:
-                err.message || "some error ocurred while retrieving boiler"
-        });
-    });
-};
-
-// Find a single Boiler an id
+// Read a single Bioler
 exports.findOne = (req, res) => {
-    Boiler.findOne({id: req.params.id})
+  const id = req.params.id;
+  Bioler.findOne({id})
     .then(data => {
-        if (!data) {
-            return res.status(400).send({
-                message: `Boiler with id ${req.params.id} was not found`
-            })
-        }
-        res.send(data)
-    })
-    .catch(err => {
-        res.status (500).send({
-            message:
-                err.message || "Some error ocurred while retrieving boilers"
-        });
-    });
-};
-
-// Update a Boiler by the id in the request
-exports.update = (req, res) => {
-    if (!req.body) {
+      if(!data) {
         return res.status(400).send({
-            message: "Data to update can not be empty!"
+          message: "The Bioler doesn't exist"
         });
-    }
-     // Validate request
-     if (!req.body.id || !req.body.description || req.body.idType);
-     res.status(400).send({ message: "Content can not be empty!"});
-     return;
- }
-
- const id = req.params.id;
-
- Boiler.findOneAndUpdate({id}, req.body, { useFindAndModify: false })
- .then(data => {
-     if (!data) {
-         res.status(400).send({
-             message: `Cannot update Boiler with the id=${id}. Maybe Boiler was not found!`
-         });
-    }else res.send({ message: "Boiler was updated successfully."});
- })
- .catch(err => {
-     res.status(500).send({
-         message: "error updating Boiler with id=" + id
-     });
- });
-
-// Delete a Boiler wtih the specified id in the request
-exports.delete = (req, res) => {
-    const id = req.params.id;
-    Boiler.findOneAndRemove({id}, { useFindAndModify: false })
-    .then(data => {
-        res.send({ message: "Boiler was remove successfully." })
+      }
+      res.send(data);
     })
     .catch(err => {
-        res.status(500).send({
-            message: "Error removing boiler with id=" + id
-        });
+      res.status(500).send({
+        message:
+        err.message || "Ups! something went wrong"
+      })
     });
-};
+}
+
+// Update Bioler
+exports.update = (req, res) => {
+  if(!req.body) {
+    return res.status(400).send({
+      message: "Data can't be empty"
+    });
+  }
+  if(!req.body.id || !req.body.description || !req.body.idType) {
+    return res.status(400).send({ message: "content can't be empty"});
+  }
+
+  const id = req.params.id;
+  Bioler.findOneAndUpdate({id})
+    .then(data => {
+      if(!data) {
+        res.status(404).send({
+          message: "Can't update the Bioler that you requested"
+        });
+      }
+      else res.send({ message: "Bioler updated successfully" });
+    })
+    .catch(err => {
+      message: "Ups! error while updating"
+    });
+}
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+  Bioler.findOneAndRemove({id})
+    .then(data =>
+      res.send({ message: "Bioler removed successfully!" })
+    )
+    .catch(err => {
+      res.status(500).send({ message: "Something went wrong" });
+    });
+}
