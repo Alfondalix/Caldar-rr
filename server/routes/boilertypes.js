@@ -14,7 +14,7 @@ router.get('/:name', boilertypes.findOne);
 // Update boiler types
 router.put('/:name', boilertypes.update);
 
-/*// Delete a boiler types
-router.delete('/:name', boilertypes.delete);*/
+// Delete a boiler types
+router.delete('/:name', boilertypes.delete);
 
 module.exports = router; 

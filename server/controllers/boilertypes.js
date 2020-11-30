@@ -40,7 +40,7 @@ exports.findOne = (req, res) => {
         .then(data => {
             if(!data) {
                 return res.status(400).send({
-                    message: "that boiler type doesn't exist"
+                    message: "That boiler type doesn't exist"
                 });
             }
             res.send(data);
@@ -70,3 +70,18 @@ exports.update = (req, res) => {
         });
     });
 };
+
+// Delete boiler type
+exports.delete = (req, res) => {
+    const name = req.params.name;
+    boilertypes.findOneAndRemove({name})
+        .then(data => {if (!data) {
+            res.status(404).send({
+                message: 'Was not found.'
+            });
+        } else res.send({ message: 'Delete succesfully.'});
+        })
+        .catch(err => {
+            res.status(500).send({ message: "Error" });
+        });
+}
