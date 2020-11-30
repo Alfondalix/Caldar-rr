@@ -32,3 +32,23 @@ exports.findAll = (req, res) => {
             });
         });
 }
+
+// Get one boiler type
+exports.findOne = (req, res) => {
+    const name = req.params.name;
+    boilertypes.findOne({name})
+        .then(data => {
+            if(!data) {
+                return res.status(400).send({
+                    message: "that boiler type doesn't exist"
+                });
+            }
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                err.message || "Something went wrong"
+            })
+        });
+}
