@@ -8,7 +8,7 @@ exports.create = (req, res) => {
         buildings: req.body.buildings
     });
 
-    Companies
+    company
         .save(company)
         .then(data => {
             res.send(data);
