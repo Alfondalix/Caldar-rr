@@ -11,10 +11,10 @@ router.post('/add', boilertypes.create);
 // Read a single boiler types
 router.get('/:name', boilertypes.findOne);
 
-/*// Update boiler types
+// Update boiler types
 router.put('/:name', boilertypes.update);
 
-// Delete a boiler types
+/*// Delete a boiler types
 router.delete('/:name', boilertypes.delete);*/
 
 module.exports = router; 

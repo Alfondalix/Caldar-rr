@@ -52,3 +52,21 @@ exports.findOne = (req, res) => {
             })
         });
 }
+
+// Update boiler type
+exports.update = (req, res) => {
+    const name = req.params.name;
+    boilertypes.findOneAndUpdate({name}, req.body, {useFindAndModify: false})
+    .then(data => {
+        if (!data) {
+            res.status(404).send({
+                message: 'Was not found.'
+            });
+        } else res.send({ message: 'Update succesfully.'});
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: 'Error'
+        });
+    });
+};
