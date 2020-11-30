@@ -9,12 +9,12 @@ router.get('/All', companies.findAll);
 router.post('/New', companies.create);
 
 // UPDATE COMPANY
-router.put('/:id', companies.update);
+router.put('/:cuit', companies.update);
 
 // DELETE COMPANY
-router.delete('/:id', companies.delete);
+router.delete('/:cuit', companies.delete);
 
 // GET ONE COMPANY
-router.get('/:id', companies.findOne);
+router.get('/:cuit', companies.findOne);
 
 module.exports = router;
