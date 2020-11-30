@@ -1,4 +1,4 @@
-const Buildings = require('../models/buildings');
+const Building = require('../models/buildings.js');
 
 // Get all buildings
 exports.findAll = (req, res) => {
@@ -41,7 +41,7 @@ exports.create = (req, res) => {
 // Read a single building
 exports.findOne = (req, res) => {
   const fullName = req.params.fullName;
-  buildings.findOne({fullName})
+  Building.findOne({fullName})
     .then(data => {
       if(!data) {
         return res.status(400).send({
@@ -70,7 +70,7 @@ exports.update = (req, res) => {
   }
 
   const fullName = req.params.fullName;
-  Building.findOneAndUpdte({fullName}, req.body)
+  Building.findOneAndUpdate({fullName})
     .then(data => {
       if(!data) {
         res.status(404).send({
