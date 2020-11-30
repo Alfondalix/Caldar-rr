@@ -9,7 +9,7 @@ exports.create = (req, res) => {
         monthlyCapacity: req.body.monthlyCapacity
     });
 
-    Technicians
+    technician
         .save(technician)
         .then(data => {
             res.send(data);
