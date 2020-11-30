@@ -12,7 +12,7 @@ router.post('/add', building.create);
 router.get('/:fullName', building.findOne);
 
 // Update building
-router.put('/:fullName', building.uptdate);
+router.put('/:fullName', building.update);
 
 // Delete a building
 router.delete('/:fullName', building.delete);

@@ -1,7 +1,4 @@
-const db = require('../models');
-const buildings = require('../models/buildings');
-
-const Building = db.building;
+const Buildings = require('../models/buildings');
 
 // Get all buildings
 exports.findAll = (req, res) => {
