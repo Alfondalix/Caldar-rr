@@ -33,7 +33,8 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-    Companies.findOne({ciut: req.params.cuit})
+    const cuit = req.params.cuit;
+    Companies.findOne({cuit})
     .then(data => {
         if(!data) {
             return res.status(404).send({
@@ -51,7 +52,7 @@ exports.findOne = (req, res) => {
 
 exports.delete = (req, res) => {
     const cuit = req.params.cuit;
-    Companies.findOneAndRemove({cuit}, {useFindAndModify: false})
+    Companies.findOneAndRemove({cuit})
     .then(data => {
         res.send({
             message: 'Company deleted'
@@ -66,7 +67,7 @@ exports.delete = (req, res) => {
 
 exports.update = (req, res) => {
     const cuit = req.params.cuit;
-    Companies.findOneAndUpdate({cuit}, {useFindAndModify: false})
+    Companies.findOneAndUpdate({cuit})
     .then(data => {
         if (!data) {
             res.status(404).send({
