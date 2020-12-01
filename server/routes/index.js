@@ -1,10 +1,8 @@
 const express = require('express');
-
-const boilerTypesRouter = require('./boilertypes')
+const boilerTypes = require('./boiler-types');
 
 const router = express.Router();
 
-router.use('/boilertypes', boilerTypesRouter);
-//router.use('/', () => console.log('routes created'));
+router.use('/boiler-types', boilerTypes);
 
 module.exports = router;
