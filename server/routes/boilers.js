@@ -1,6 +1,6 @@
 const boiler = require("../controllers/boilers.js");
 
-var router = require("express").Router();
+const router = require("express").Router();
 
 // Retrieve all boilers
 router.get("/", boiler.findAll);
@@ -16,5 +16,6 @@ router.put("/:id", boiler.update);
 
 // Delete a boiler with id
 router.delete("/:id", boiler.delete);
+
 
 module.exports = router;
