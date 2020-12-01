@@ -40,8 +40,7 @@ exports.create = (req, res) => {
 
 // Read a single building
 exports.findOne = (req, res) => {
-  const fullName = req.params.fullName;
-  Building.findOne({fullName})
+  Building.findOne({ id: req.params._id })
     .then(data => {
       if(!data) {
         return res.status(400).send({
@@ -68,16 +67,14 @@ exports.update = (req, res) => {
   if(!req.body.address || !req.body.fullName || !req.body.phoneNumber) {
     return res.status(400).send({ message: "content can't be empty"});
   }
-
-  const fullName = req.params.fullName;
-  Building.findOneAndUpdate({fullName})
+  Building.findOneAndUpdate({ id: req.params._id }, req.body, { new: true })
     .then(data => {
       if(!data) {
         res.status(404).send({
           message: "Can't update the building that you requested"
         });
       }
-      else res.send({ message: "Building updated successfully" });
+      else res.send({ message: "Building updated successfully", data });
     })
     .catch(err => {
       message: "Ups! error while updating"
@@ -85,8 +82,7 @@ exports.update = (req, res) => {
 }
 
 exports.delete = (req, res) => {
-  const fullName = req.params.fullName;
-  Building.findOneAndRemove({fullName})
+  Building.findOneAndRemove({ id: req.params._id })
     .then(data =>
       res.send({ message: "Building removed successfully!" })
     )
