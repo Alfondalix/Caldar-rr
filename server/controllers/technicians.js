@@ -34,7 +34,9 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-    Technicians.findOne({ciut: req.params.fullname})
+    const fullname = req.params.fullname;
+
+    Technicians.findOne({fullname})
     .then(data => {
         if(!data) {
             return res.status(404).send({
@@ -51,8 +53,8 @@ exports.findOne = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    const cuit = req.params.fullname;
-    Technicians.findOneAndRemove({cuit}, {useFindAndModify: false})
+    const fullname = req.params.fullname;
+    Technicians.findOneAndRemove({fullname})
     .then(data => {
         res.send({
             message: 'Technician deleted'
@@ -60,14 +62,14 @@ exports.delete = (req, res) => {
     })
     .catch(err => {
         res.status(500).send({
-            message: 'Error' + cuit
+            message: 'Error' + fullname
         });
     });
 };
 
 exports.update = (req, res) => {
-    const cuit = req.params.cuit;
-    Technicians.findOneAndUpdate({cuit}, {useFindAndModify: false})
+    const fullname = req.params.fullname;
+    Technicians.findOneAndUpdate({fullname})
     .then(data => {
         if (!data) {
             res.status(404).send({
