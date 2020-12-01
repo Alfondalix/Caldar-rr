@@ -22,21 +22,20 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    Technicians.find({})
-    .then(data => {
-        res.send(data);
-    })
-    .catch(err => {
-        res.status(500).send({
-            message: 'Error'
+    Technicians
+        .find({})
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: 'Error'
+            });
         });
-    });
 };
 
 exports.findOne = (req, res) => {
-    const fullname = req.params.fullname;
-
-    Technicians.findOne({fullname})
+    Technicians.findOne({id: req.params._id})
     .then(data => {
         if(!data) {
             return res.status(404).send({
@@ -53,11 +52,10 @@ exports.findOne = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    const fullname = req.params.fullname;
-    Technicians.findOneAndRemove({fullname})
+    Technicians.findOneAndRemove({id: req.params._id})
     .then(data => {
         res.send({
-            message: 'Technician deleted'
+            message: 'Technician deleted', data
         })
     })
     .catch(err => {
@@ -68,14 +66,13 @@ exports.delete = (req, res) => {
 };
 
 exports.update = (req, res) => {
-    const fullname = req.params.fullname;
-    Technicians.findOneAndUpdate({fullname})
+    Technicians.findOneAndUpdate({id: req.params._id}, req.body, {new: true})
     .then(data => {
         if (!data) {
             res.status(404).send({
                 message: 'Was not found. Can not update.'
             });
-        } else res.send({ message: 'Updated succesfully.'});
+        } else res.send({ message: 'Updated succesfully.', data});
     })
     .catch(err => {
         res.status(500).send({
