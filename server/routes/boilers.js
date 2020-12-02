@@ -1,21 +1,19 @@
-const boiler = require("../controllers/boilers.js");
+const boiler = require('../controllers/boilers.js');
+const router = require('express').Router();
 
-const router = require("express").Router();
+// GET ALL BOILER
+router.get('/', boiler.findAll);
 
-// Retrieve all boilers
-router.get("/", boiler.findAll);
+// CREATE NEW BOILER
+router.post('/', boiler.create);
 
-// Create a new boiler
-router.post("/:id", boiler.create);
+// GET ONE BOILER
+router.get('/:id', boiler.findOne);
 
-//Retrieve a single boiler with id
-router.get("/:id", boiler.findOne);
+// UPDATE BOILER
+router.put('/:id', boiler.update);
 
-// Update a boiler with id
-router.put("/:id", boiler.update);
-
-// Delete a boiler with id
-router.delete("/:id", boiler.delete);
-
+// DELETE BOILER
+router.delete('/:id', boiler.delete);
 
 module.exports = router;

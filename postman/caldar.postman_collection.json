@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8978f8c6-3225-492c-a13a-e69783514fbf",
+		"_postman_id": "63cd0835-2e35-490f-a689-8fac23d3337a",
 		"name": "Caldar",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -19,7 +19,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "86670dfe-fa55-48b9-83a2-3827db34e487",
+								"id": "c646eca3-73f6-49c5-a89f-992c645f4160",
 								"exec": [
 									"{\r",
 									"    \r",
@@ -185,7 +185,155 @@
 		},
 		{
 			"name": "boilers",
-			"item": [],
+			"item": [
+				{
+					"name": "Get all boilers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "1",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/boilers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"boilers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a boiler",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/boilers/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"boilers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5fc6eb1b5a630b49381befb9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add boiler",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Boiler test\",\r\n    \"idType\": \"5fc6d320fec3733fcc6ec2aa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/boilers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"boilers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update boiler",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Boiler test\",\r\n    \"idType\": \"5fc6d320fec3733fcc6ec2aa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/boilers/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"boilers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5fc6eb1b5a630b49381befb9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete boiler",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/boilers/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"boilers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5fc6eb1b5a630b49381befb9"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
@@ -329,7 +477,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete a boiler type",
+					"name": "Delete boiler type",
 					"request": {
 						"method": "DELETE",
 						"header": [],

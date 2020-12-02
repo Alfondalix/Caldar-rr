@@ -12,15 +12,14 @@ exports.create = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || 'Something went wrong while creating a new boiler type!',
+        message: err.message || 'Something went wrong',
       });
     });
 };
 
 exports.findAll = (req, res) => {
   BoilerTypes.find({})
-    .then(data => {
+    .then((data) => {
       res.send(data);
     })
     .catch((err) => {
@@ -48,7 +47,6 @@ exports.findOne = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  console.log('REQ PARAMS', req.params)
   BoilerTypes.findOneAndUpdate({ id: req.params.id }, req.body, { new: true })
     .then((data) => {
       if (!data) {
@@ -59,7 +57,7 @@ exports.update = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Error',
+        message: err.message || 'Something went wrong',
       });
     });
 };
@@ -74,6 +72,8 @@ exports.delete = (req, res) => {
       } else res.send({ message: 'Delete succesfully.' });
     })
     .catch((err) => {
-      res.status(500).send({ message: 'Error' });
+      res.status(500).send({
+        message: err.message || 'Something went wrong',
+      });
     });
 };
