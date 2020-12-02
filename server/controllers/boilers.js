@@ -1,12 +1,7 @@
-const BoilerTypes = require('../models/boiler-types.js');
+const Boiler = require('../models/boilers.js');
 
-exports.create = (req, res) => {
-  const boylerType = new BoilerTypes({
-    name: req.body.name,
-    description: req.body.description,
-  });
-  boylerType
-    .save(boylerType)
+exports.findAll = (req, res) => {
+  Boiler.find({})
     .then((data) => {
       res.send(data);
     })
@@ -17,8 +12,15 @@ exports.create = (req, res) => {
     });
 };
 
-exports.findAll = (req, res) => {
-  BoilerTypes.find({})
+exports.create = (req, res) => {
+  if (!req.body.description || !req.body.idType) {
+    res.status(400).send({ message: "Content can't be empty " });
+  }
+  const boiler = new Boiler({
+    description: req.body.description,
+    idType: req.body.idType,
+  });
+  boiler.save()
     .then((data) => {
       res.send(data);
     })
@@ -30,11 +32,11 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-  BoilerTypes.findOne({ _id: req.params.id })
+  Boiler.findOne({ _id: req.params.id })
     .then((data) => {
       if (!data) {
         return res.status(400).send({
-          message: "That boiler type doesn't exist",
+          message: "The Boiler doesn't exist",
         });
       }
       res.send(data);
@@ -47,11 +49,20 @@ exports.findOne = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  BoilerTypes.findOneAndUpdate({ id: req.params.id }, req.body, { new: true })
+  if (!req.body) {
+    return res.status(400).send({
+      message: "Data can't be empty",
+    });
+  }
+  if (!req.body.description || !req.body.idType) {
+    return res.status(400).send({ message: "Content can't be empty" });
+  }
+
+  Boiler.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: 'Was not found.',
+          message: "Can't update the Boiler that you requested",
         });
       } else res.send({ message: 'Update succesfully.', data });
     })
@@ -63,7 +74,7 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  BoilerTypes.findOneAndRemove({ id: req.params.id })
+  Boiler.findOneAndRemove({ _id: req.params.id })
     .then((data) => {
       if (!data) {
         res.status(404).send({
