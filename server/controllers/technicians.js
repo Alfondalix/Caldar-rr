@@ -35,7 +35,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-    Technicians.findOne({id: req.params._id})
+    Technicians.findOne({_id: req.params.id})
     .then(data => {
         if(!data) {
             return res.status(404).send({
@@ -52,7 +52,7 @@ exports.findOne = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    Technicians.findOneAndRemove({id: req.params._id})
+    Technicians.findOneAndRemove({_id: req.params.id})
     .then(data => {
         res.send({
             message: 'Technician deleted', data
@@ -66,7 +66,7 @@ exports.delete = (req, res) => {
 };
 
 exports.update = (req, res) => {
-    Technicians.findOneAndUpdate({id: req.params._id}, req.body, {new: true})
+    Technicians.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
     .then(data => {
         if (!data) {
             res.status(404).send({
