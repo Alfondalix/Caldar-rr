@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "63cd0835-2e35-490f-a689-8fac23d3337a",
+		"_postman_id": "c9b160b2-7f1d-4bbf-aa6d-de8be688beee",
 		"name": "Caldar",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -19,7 +19,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "c646eca3-73f6-49c5-a89f-992c645f4160",
+								"id": "5b84a8ff-d8dd-4917-84d9-ec9f5d5b8450",
 								"exec": [
 									"{\r",
 									"    \r",
@@ -338,7 +338,131 @@
 		},
 		{
 			"name": "technicians",
-			"item": [],
+			"item": [
+				{
+					"name": "Delele Technician By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Technicians/:fullname",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Technicians",
+								":fullname"
+							],
+							"variable": [
+								{
+									"key": "fullname",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Technician By ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Technicians/:fullname",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Technicians",
+								":fullname"
+							],
+							"variable": [
+								{
+									"key": "fullname",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Technician By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Technicians/:fullname",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Technicians",
+								":fullname"
+							],
+							"variable": [
+								{
+									"key": "fullname",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Technicians",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Technicians/All",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Technicians",
+								"All"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Technician",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Technicians/New",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Technicians",
+								"New"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
