@@ -3,10 +3,10 @@ const companies = require('../controllers/companies.js');
 var router = require('express').Router();
 
 // GET ALL COMPANIES
-router.get('/all', companies.findAll);
+router.get('/', companies.findAll);
 
 // CREATE NEW COMPANY
-router.post('/new', companies.create);
+router.post('/', companies.create);
 
 // UPDATE COMPANY
 router.put('/:id', companies.update);
