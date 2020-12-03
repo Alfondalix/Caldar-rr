@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
 const CompaniesSchema = new Schema({
     cuit: {
@@ -15,11 +14,9 @@ const CompaniesSchema = new Schema({
         required: true
     },
     buildings: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Building'
     }]
 });
 
-const Companies = mongoose.model('Companies', CompaniesSchema);
-
-module.exports = Companies;
+module.exports = mongoose.model('Companies', CompaniesSchema);
