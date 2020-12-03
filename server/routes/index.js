@@ -10,5 +10,6 @@ router.use('/boiler-types', boilerTypesRouter);
 router.use('/boilers', boilersRouter);
 router.use('/technicians', techniciansRouter);
 router.use('/Companies', companiesRouter);
+router.use('/companies', companiesRouter);
 
 module.exports = router;
