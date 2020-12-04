@@ -11,6 +11,6 @@ router.use('/boiler-types', boilerTypesRouter);
 router.use('/boilers', boilersRouter);
 router.use('/technicians', techniciansRouter);
 router.use('/companies', companiesRouter);
-router.use('./buildings', buildingRouter);
+router.use('/buildings', buildingRouter);
 
 module.exports = router;
