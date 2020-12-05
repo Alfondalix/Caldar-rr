@@ -13,13 +13,24 @@ exports.findAll = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  if (!req.body.address || !req.body.fullName || !req.body.phoneNumber) {
+  const addressValid = /\w\s\d/;
+  if (!req.body.address || !req.body.fullname || !req.body.phoneNumber) {
     res.status(400).send({ message: "Content can't be empty " });
   }
+  if(!req.body.adress.match(addressValid) || req.body.adress.length < 3) {
+    return res.status(400).send({ message: "Error: Invalid Adress"})
+  }
+  if(req.body.phoneNumber.length < 7) {
+    return res.status(400).send({ meessage: "Error: phone not valid"})
+  }
+  if(req.body.fulllname.length < 3) {
+    return res.status(400).send({ message: "Error: Invalid Builgind Name"})
+  }
+
   const building = new Building({
     address: req.body.address,
     boilers: req.body.boilers,
-    fullName: req.body.fullName,
+    fullname: req.body.fullname,
     phoneNumber: req.body.phoneNumber,
   });
   building
@@ -53,13 +64,18 @@ exports.findOne = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  if (!req.body) {
-    return res.status(400).send({
-      message: "Data can't be empty",
-    });
-  }
-  if (!req.body.address || !req.body.fullName || !req.body.phoneNumber) {
+  const addressValid = /\w\s\d/;
+  if (!req.body.address && !req.body.fullname && !req.body.phoneNumber) {
     return res.status(400).send({ message: "content can't be empty" });
+  }
+  if (req.body.fulllname.length < 3) {
+    return res.status(400).send({ meessage: "Error: name not valid"})
+  }
+  if(req.body.phoneNumber.length < 7) {
+    return res.status(400).send({ meessage: "Error: phone not valid"})
+  }
+  if(!req.body.adress.match(addressValid) || req.body.adress.length < 3) {
+    return res.status(400).send({ message: "Error: Invalid Adress"})
   }
   Building.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
     .then((data) => {

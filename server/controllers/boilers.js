@@ -13,7 +13,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  if (!req.body.description || !req.body.idType) {
+  if (!req.body.description && !req.body.idType) {
     res.status(400).send({ message: "Content can't be empty " });
   }
   const boiler = new Boiler({

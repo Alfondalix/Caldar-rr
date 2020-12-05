@@ -1,6 +1,14 @@
 const BoilerTypes = require('../models/boiler-types.js');
 
 exports.create = (req, res) => {
+  const regex = /[A-Z]/;
+  if(req.body.name.length != 1 && req.body.name.match(regex)) {
+    return res.status(400).send({ message: "Error: Invalid Boiler Name" })
+  }
+  if(req.body.description.length <= 0) {
+    return res.status(400).send({ message: "Error: Invalid Boiler description" })
+  }
+  
   const boylerType = new BoilerTypes({
     name: req.body.name,
     description: req.body.description,
@@ -47,7 +55,14 @@ exports.findOne = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  BoilerTypes.findOneAndUpdate({ id: req.params.id }, req.body, { new: true })
+  const regex = /[A-Z]/;
+  if(req.body.name.length != 1 && req.body.name.match(regex)) {
+    return res.status(400).send({ message: "Error: Invalid Boiler Name" })
+  }
+  if(req.body.description.length <= 0) {
+    return res.status(400).send({ message: "Error: Invalid Boiler description" })
+  }
+  BoilerTypes.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
     .then((data) => {
       if (!data) {
         res.status(404).send({
@@ -63,7 +78,7 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  BoilerTypes.findOneAndRemove({ id: req.params.id })
+  BoilerTypes.findOneAndRemove({ _id: req.params.id })
     .then((data) => {
       if (!data) {
         res.status(404).send({

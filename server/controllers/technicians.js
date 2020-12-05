@@ -1,6 +1,17 @@
 const Technicians = require("../models/technicians.js");
 
 exports.create = (req, res) => {
+    const nameFor = /^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/;
+    if (!req.body.fullname && !req.body.birthdate && !req.body.phoneNumber && !req.body.monthlyCapacity) {
+        return res.status(400).send({ message: "content can't be empty" });
+    }
+    if (req.body.fullname.length < 6 || !req.body.fullname.match(nameFor)) {
+        return res.status(400).send({ meessage: "Error: name not valid"})
+    }
+    if(req.body.phoneNumber.length < 7) {
+        return res.status(400).send({ meessage: "Error: phone not valid"})
+    }
+
     const technician = new Technicians({
         fullname: req.body.fullname,
         boilersType: req.body.boilers,
@@ -66,6 +77,16 @@ exports.delete = (req, res) => {
 };
 
 exports.update = (req, res) => {
+    const nameFor = /^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/;
+    if (!req.body.fullname && !req.body.birthdate && !req.body.phoneNumber && !req.body.monthlyCapacity) {
+        return res.status(400).send({ message: "content can't be empty" });
+    }
+    if (req.body.fullname.length < 6 || !req.body.fullname.match(nameFor)) {
+        return res.status(400).send({ meessage: "Error: name not valid"})
+    }
+    if(req.body.phoneNumber.length < 7) {
+        return res.status(400).send({ meessage: "Error: phone not valid"})
+    }
     Technicians.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
     .then(data => {
         if (!data) {
