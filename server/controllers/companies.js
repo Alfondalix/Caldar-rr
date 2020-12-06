@@ -31,7 +31,7 @@ exports.create = (req, res) => {
   company
     .save(company)
     .then((data) => {
-      res.send(data);
+      res.status(201).send(data);
     })
     .catch((err) => {
       res.status(500).send({
@@ -44,7 +44,7 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
   Companies.find({})
     .then((data) => {
-      res.send(data);
+      res.status(200).send(data);
     })
     .catch((err) => {
       res.status(500).send({
@@ -61,7 +61,7 @@ exports.findOne = (req, res) => {
           message: "Company (" + _id + ") doesn't exists.",
         });
       }
-      res.send(data);
+      res.status(200).send(data);
     })
     .catch((err) => {
       res.status(500).send({
@@ -73,7 +73,7 @@ exports.findOne = (req, res) => {
 exports.delete = (req, res) => {
   Companies.findOneAndRemove({ _id: req.params.id })
     .then((data) => {
-      res.send({
+      res.status(200).send({
         message: "Company removed successfully!",
       });
     })
@@ -108,7 +108,7 @@ exports.update = (req, res) => {
       res.status(404).send({
         message: "Can't update the Company that you requested",
       });
-    } else res.send({ message: "Company updated succesfully." });
+    } else res.status(200).send({ message: "Company updated succesfully." });
    })
    .catch((err) => {
     res.status(500).send({

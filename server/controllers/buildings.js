@@ -54,7 +54,7 @@ exports.findOne = (req, res) => {
           message: "That building doesn't exist",
         });
       }
-      res.send(data);
+      res.status(200).send(data);
     })
     .catch((err) => {
       res.status(500).send({

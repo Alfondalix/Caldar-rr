@@ -23,7 +23,7 @@ exports.create = (req, res) => {
     technician
         .save(technician)
         .then(data => {
-            res.send(data);
+            res.status(201).send(data);
         })
         .catch(err => {
             res.status(500).send({
@@ -36,7 +36,7 @@ exports.findAll = (req, res) => {
     Technicians
         .find({})
         .then(data => {
-            res.send(data);
+            res.status(200).send(data);
         })
         .catch(err => {
             res.status(500).send({
@@ -53,7 +53,7 @@ exports.findOne = (req, res) => {
                 message: 'Technician doesnt exists.'
             });
         }
-        res.send(data);
+        res.status(200).send(data);
     })
     .catch(err => {
         res.status(500).send({
@@ -65,7 +65,7 @@ exports.findOne = (req, res) => {
 exports.delete = (req, res) => {
     Technicians.findOneAndRemove({_id: req.params.id})
     .then(data => {
-        res.send({
+        res.status(200).send({
             message: 'Technician deleted', data
         })
     })
@@ -93,7 +93,7 @@ exports.update = (req, res) => {
             res.status(404).send({
                 message: 'Was not found. Can not update.'
             });
-        } else res.send({ message: 'Updated succesfully.', data});
+        } else res.status(200).send({ message: 'Updated succesfully.', data});
     })
     .catch(err => {
         res.status(500).send({

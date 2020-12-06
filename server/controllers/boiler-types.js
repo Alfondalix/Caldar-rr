@@ -16,7 +16,7 @@ exports.create = (req, res) => {
   boylerType
     .save(boylerType)
     .then((data) => {
-      res.send(data);
+      res.status(201).send(data);
     })
     .catch((err) => {
       res.status(500).send({
@@ -28,7 +28,7 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
   BoilerTypes.find({})
     .then((data) => {
-      res.send(data);
+      res.status(200).send(data);
     })
     .catch((err) => {
       res.status(500).send({
@@ -45,7 +45,7 @@ exports.findOne = (req, res) => {
           message: "That boiler type doesn't exist",
         });
       }
-      res.send(data);
+      res.status(200).send(data);
     })
     .catch((err) => {
       res.status(500).send({
@@ -68,7 +68,7 @@ exports.update = (req, res) => {
         res.status(404).send({
           message: 'Was not found.',
         });
-      } else res.send({ message: 'Update succesfully.', data });
+      } else res.status(200).send({ message: 'Update succesfully.', data });
     })
     .catch((err) => {
       res.status(500).send({
@@ -84,7 +84,7 @@ exports.delete = (req, res) => {
         res.status(404).send({
           message: 'Was not found.',
         });
-      } else res.send({ message: 'Delete succesfully.' });
+      } else res.status(200).send({ message: 'Delete succesfully.' });
     })
     .catch((err) => {
       res.status(500).send({
