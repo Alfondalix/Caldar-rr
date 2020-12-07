@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const CompaniesSchema = new Schema({
+const CompaniesSchema = new mongoose.Schema({
     cuit: {
-        type: Number,
+        type: String,
         required: true
     },
     email: {
