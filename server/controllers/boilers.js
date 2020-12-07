@@ -7,14 +7,14 @@ exports.findAll = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Something went wrong',
+        message: err.message || 'Something Went Wrong',
       });
     });
 };
 
 exports.create = (req, res) => {
   if (!req.body.description && !req.body.idType) {
-    res.status(400).send({ message: "Content can't be empty " });
+    res.status(400).send({ message: "Content Can't Be Empty " });
   }
   const boiler = new Boiler({
     description: req.body.description,
@@ -26,7 +26,7 @@ exports.create = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Something went wrong',
+        message: err.message || 'Something Went Wrong',
       });
     });
 };
@@ -36,14 +36,14 @@ exports.findOne = (req, res) => {
     .then((data) => {
       if (!data) {
         return res.status(400).send({
-          message: "The Boiler doesn't exist",
+          message: "The Boiler Doesn't Exist",
         });
       }
       res.status(200).send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Something went wrong',
+        message: err.message || 'Something Went Wrong',
       });
     });
 };
@@ -51,24 +51,24 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
-      message: "Data can't be empty",
+      message: "Data Can't Be Empty",
     });
   }
   if (!req.body.description || !req.body.idType) {
-    return res.status(400).send({ message: "Content can't be empty" });
+    return res.status(400).send({ message: "Content Can't Be Empty" });
   }
 
   Boiler.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: "Can't update the Boiler that you requested",
+          message: "Can't Update The Boiler That You Requested",
         });
-      } else res.status(200).send({ message: 'Update succesfully.', data });
+      } else res.status(200).send({ message: 'Update Succesfully.', data });
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Something went wrong',
+        message: err.message || 'Something Went Wrong',
       });
     });
 };
@@ -78,13 +78,13 @@ exports.delete = (req, res) => {
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: 'Was not found.',
+          message: 'Was Not Found.',
         });
-      } else res.status(200).send({ message: 'Delete succesfully.' });
+      } else res.status(200).send({ message: 'Delete Succesfully.' });
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Something went wrong',
+        message: err.message || 'Something Went Wrong',
       });
     });
 };

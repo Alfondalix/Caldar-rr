@@ -6,7 +6,7 @@ exports.create = (req, res) => {
     return res.status(400).send({ message: "Error: Invalid Boiler Name" })
   }
   if(req.body.description.length <= 0) {
-    return res.status(400).send({ message: "Error: Invalid Boiler description" })
+    return res.status(400).send({ message: "Error: Invalid Boiler Description" })
   }
   
   const boylerType = new BoilerTypes({
@@ -20,7 +20,7 @@ exports.create = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Something went wrong',
+        message: err.message || 'Something Went Wrong',
       });
     });
 };
@@ -32,7 +32,7 @@ exports.findAll = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Something went wrong',
+        message: err.message || 'Something Went Wrong',
       });
     });
 };
@@ -42,14 +42,14 @@ exports.findOne = (req, res) => {
     .then((data) => {
       if (!data) {
         return res.status(400).send({
-          message: "That boiler type doesn't exist",
+          message: "That Boiler Type Doesn't Exist",
         });
       }
       res.status(200).send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Something went wrong',
+        message: err.message || 'Something Went Wrong',
       });
     });
 };
@@ -60,7 +60,7 @@ exports.update = (req, res) => {
     return res.status(400).send({ message: "Error: Invalid Boiler Name" })
   }
   if(req.body.description.length <= 0) {
-    return res.status(400).send({ message: "Error: Invalid Boiler description" })
+    return res.status(400).send({ message: "Error: Invalid Boiler Description" })
   }
   BoilerTypes.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
     .then((data) => {
@@ -68,11 +68,11 @@ exports.update = (req, res) => {
         res.status(404).send({
           message: 'Was not found.',
         });
-      } else res.status(200).send({ message: 'Update succesfully.', data });
+      } else res.status(200).send({ message: 'Update Succesfully.', data });
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Something went wrong',
+        message: err.message || 'Something Went Wrong',
       });
     });
 };
@@ -82,13 +82,13 @@ exports.delete = (req, res) => {
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: 'Was not found.',
+          message: 'Was Not Found.',
         });
-      } else res.status(200).send({ message: 'Delete succesfully.' });
+      } else res.status(200).send({ message: 'Delete Succesfully.' });
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Something went wrong',
+        message: err.message || 'Something Went Wrong',
       });
     });
 };

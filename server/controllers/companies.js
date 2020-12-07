@@ -58,14 +58,14 @@ exports.findOne = (req, res) => {
     .then((data) => {
       if (!data) {
         return res.status(404).send({
-          message: "Company (" + _id + ") doesn't exists.",
+          message: "Company Doesn't Exists.",
         });
       }
       res.status(200).send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Something went wrong",
+        message: err.message || "Something Went Wrong",
       });
     });
 };
@@ -74,12 +74,12 @@ exports.delete = (req, res) => {
   Companies.findOneAndRemove({ _id: req.params.id })
     .then((data) => {
       res.status(200).send({
-        message: "Company removed successfully!",
+        message: "Company Removed Successfully!",
       });
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error removing the requested building",
+        message: err.message || "Error Removing The Requested Building",
       });
     });
 };
@@ -94,7 +94,7 @@ exports.update = (req, res) => {
        }); 
    }
   if(!req.body.cuit.match(cuitValid)) {
-    res.status(400).send({ message: "Error: Invalid cuit" })
+    res.status(400).send({ message: "Error: Invalid Cuit" })
   }
   if(!req.body.email.match(emailValid)) {
     return res.status(400).send({ message: "Error: Invalid Email"})
@@ -106,13 +106,13 @@ exports.update = (req, res) => {
    .then(data => {
      if (!data) {
       res.status(404).send({
-        message: "Can't update the Company that you requested",
+        message: "Can't Update The Company That You Requested",
       });
-    } else res.status(200).send({ message: "Company updated succesfully." });
+    } else res.status(200).send({ message: "Company Updated Succesfully." });
    })
    .catch((err) => {
     res.status(500).send({
-      message: err.message || "Error while updating",
+      message: err.message || "Error While Updating",
     });
    });
 };

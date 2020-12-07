@@ -3,13 +3,13 @@ const Technicians = require("../models/technicians.js");
 exports.create = (req, res) => {
     const nameFor = /^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/;
     if (!req.body.fullName && !req.body.birthdate && !req.body.phoneNumber && !req.body.monthlyCapacity) {
-        return res.status(400).send({ message: "content can't be empty" });
+        return res.status(400).send({ message: "Content Can't Be Empty" });
     }
     if (req.body.fullName.length < 6 || !req.body.fullName.match(nameFor)) {
-        return res.status(400).send({ meessage: "Error: name not valid"})
+        return res.status(400).send({ meessage: "Error: Name Not Valid"})
     }
     if(req.body.phoneNumber.length < 7) {
-        return res.status(400).send({ meessage: "Error: phone not valid"})
+        return res.status(400).send({ meessage: "Error: Phone Not Valid"})
     }
 
     const technician = new Technicians({
@@ -27,7 +27,7 @@ exports.create = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message: 'Error'
+                message: err.meessage || 'Something Went Wrong While Creating A New Technician'
             });
         });
 };
@@ -40,7 +40,7 @@ exports.findAll = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message: 'Error'
+                message: err.message || 'Something Went Wrong'
             });
         });
 };
@@ -57,7 +57,7 @@ exports.findOne = (req, res) => {
     })
     .catch(err => {
         res.status(500).send({
-            message: 'Error'
+            message: err.message || 'Something Went Wrong'
         });
     });
 };
@@ -66,12 +66,12 @@ exports.delete = (req, res) => {
     Technicians.findOneAndRemove({_id: req.params.id})
     .then(data => {
         res.status(200).send({
-            message: 'Technician deleted', data
+            message: 'Technician Removed Successfully!', data
         })
     })
     .catch(err => {
         res.status(500).send({
-            message: 'Error' + fullName
+            message: err.message || 'Error Removing The Requested Technician'
         });
     });
 };
@@ -79,10 +79,10 @@ exports.delete = (req, res) => {
 exports.update = (req, res) => {
     const nameFor = /^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/;
     if (!req.body.fullName && !req.body.birthdate && !req.body.phoneNumber && !req.body.monthlyCapacity) {
-        return res.status(400).send({ message: "content can't be empty" });
+        return res.status(400).send({ message: "Content Can't Be Empty" });
     }
     if (req.body.fullName.length < 6 || !req.body.fullName.match(nameFor)) {
-        return res.status(400).send({ meessage: "Error: name not valid"})
+        return res.status(400).send({ meessage: "Error: Name Not Valid"})
     }
     if(req.body.phoneNumber.length < 7) {
         return res.status(400).send({ meessage: "Error: phone not valid"})
@@ -91,13 +91,13 @@ exports.update = (req, res) => {
     .then(data => {
         if (!data) {
             res.status(404).send({
-                message: 'Was not found. Can not update.'
+                message: 'Was Not Found. Can Not Update.'
             });
         } else res.status(200).send({ message: 'Updated succesfully.', data});
     })
     .catch(err => {
         res.status(500).send({
-            message: 'Error'
+            message: err.message || 'Error While Updating'
         });
     });
 };
