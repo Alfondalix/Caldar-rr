@@ -2,10 +2,10 @@ const Technicians = require("../models/technicians.js");
 
 exports.create = (req, res) => {
     const nameFor = /^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/;
-    if (!req.body.fullname && !req.body.birthdate && !req.body.phoneNumber && !req.body.monthlyCapacity) {
+    if (!req.body.fullName && !req.body.birthdate && !req.body.phoneNumber && !req.body.monthlyCapacity) {
         return res.status(400).send({ message: "content can't be empty" });
     }
-    if (req.body.fullname.length < 6 || !req.body.fullname.match(nameFor)) {
+    if (req.body.fullName.length < 6 || !req.body.fullName.match(nameFor)) {
         return res.status(400).send({ meessage: "Error: name not valid"})
     }
     if(req.body.phoneNumber.length < 7) {
@@ -13,7 +13,7 @@ exports.create = (req, res) => {
     }
 
     const technician = new Technicians({
-        fullname: req.body.fullname,
+        fullName: req.body.fullName,
         boilersType: req.body.boilers,
         birthdate: req.body.birthdate,
         phoneNumber: req.body.phoneNumber,
@@ -71,17 +71,17 @@ exports.delete = (req, res) => {
     })
     .catch(err => {
         res.status(500).send({
-            message: 'Error' + fullname
+            message: 'Error' + fullName
         });
     });
 };
 
 exports.update = (req, res) => {
     const nameFor = /^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/;
-    if (!req.body.fullname && !req.body.birthdate && !req.body.phoneNumber && !req.body.monthlyCapacity) {
+    if (!req.body.fullName && !req.body.birthdate && !req.body.phoneNumber && !req.body.monthlyCapacity) {
         return res.status(400).send({ message: "content can't be empty" });
     }
-    if (req.body.fullname.length < 6 || !req.body.fullname.match(nameFor)) {
+    if (req.body.fullName.length < 6 || !req.body.fullName.match(nameFor)) {
         return res.status(400).send({ meessage: "Error: name not valid"})
     }
     if(req.body.phoneNumber.length < 7) {

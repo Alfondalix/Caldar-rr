@@ -14,7 +14,7 @@ exports.findAll = (req, res) => {
 
 exports.create = (req, res) => {
   const addressValid = /\w\s\d/;
-  if (!req.body.address || !req.body.fullname || !req.body.phoneNumber) {
+  if (!req.body.address || !req.body.fullName || !req.body.phoneNumber) {
     res.status(400).send({ message: "Content can't be empty " });
   }
   if(!req.body.adress.match(addressValid) || req.body.adress.length < 3) {
@@ -30,7 +30,7 @@ exports.create = (req, res) => {
   const building = new Building({
     address: req.body.address,
     boilers: req.body.boilers,
-    fullname: req.body.fullname,
+    fullName: req.body.fullName,
     phoneNumber: req.body.phoneNumber,
   });
   building
@@ -65,7 +65,7 @@ exports.findOne = (req, res) => {
 
 exports.update = (req, res) => {
   const addressValid = /\w\s\d/;
-  if (!req.body.address && !req.body.fullname && !req.body.phoneNumber) {
+  if (!req.body.address && !req.body.fullName && !req.body.phoneNumber) {
     return res.status(400).send({ message: "content can't be empty" });
   }
   if (req.body.fulllname.length < 3) {
