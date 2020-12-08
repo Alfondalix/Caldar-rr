@@ -12,22 +12,21 @@ app.use(bodyParser.json());
 
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
-mongoose.connect(
-  process.env.DB_CONNECT,
-  {
+mongoose
+  .connect(process.env.DB_CONNECT, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
-.then(() => {
-  console.log("Connected to the database");
-})
-.catch(err => {
-  console.log("Cannot connect to the database", err);
-  process.exit();
-});
+  .then(() => {
+    console.log('Connected to the database');
+  })
+  .catch((err) => {
+    console.log('Cannot connect to the database', err);
+    process.exit();
+  });
 
 app.use('/api', router);
 
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
-});
+}); //
