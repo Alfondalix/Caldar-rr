@@ -20,7 +20,8 @@ exports.create = (req, res) => {
     description: req.body.description,
     idType: req.body.idType,
   });
-  boiler.save()
+  boiler
+    .save()
     .then((data) => {
       res.status(201).send(data);
     })

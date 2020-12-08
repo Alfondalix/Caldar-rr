@@ -7,6 +7,7 @@
     "start": "node index.js",
     "dev": "nodemon index",
     "lint": "eslint .",
+    "prettier": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "eslint": "^7.15.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "prettier": "2.2.1"
   }
 }
