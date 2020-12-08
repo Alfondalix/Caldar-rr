@@ -14,13 +14,14 @@ exports.findAll = (req, res) => {
 
 exports.create = (req, res) => {
   if (!req.body.description && !req.body.idType) {
-    res.status(400).send({ message: "Content Can't Be Empty " });
+    res.status(400).send({ message: 'Content Cannot Be Empty ' });
   }
   const boiler = new Boiler({
     description: req.body.description,
     idType: req.body.idType,
   });
-  boiler.save()
+  boiler
+    .save()
     .then((data) => {
       res.status(201).send(data);
     })
@@ -36,7 +37,7 @@ exports.findOne = (req, res) => {
     .then((data) => {
       if (!data) {
         return res.status(400).send({
-          message: "The Boiler Doesn't Exist",
+          message: 'The Boiler Does Not Exist',
         });
       }
       res.status(200).send(data);
@@ -51,18 +52,18 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
-      message: "Data Can't Be Empty",
+      message: 'Data Cannot Be Empty',
     });
   }
   if (!req.body.description || !req.body.idType) {
-    return res.status(400).send({ message: "Content Can't Be Empty" });
+    return res.status(400).send({ message: 'Content Cannot Be Empty' });
   }
 
   Boiler.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: "Can't Update The Boiler That You Requested",
+          message: 'Cannot Update The Boiler That You Requested',
         });
       } else res.status(200).send({ message: 'Update Succesfully.', data });
     })

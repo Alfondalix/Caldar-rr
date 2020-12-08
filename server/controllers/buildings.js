@@ -15,16 +15,16 @@ exports.findAll = (req, res) => {
 exports.create = (req, res) => {
   const addressValid = /\w\s\d/;
   if (!req.body.address || !req.body.fullName || !req.body.phoneNumber) {
-    res.status(400).send({ message: "Content Can't Be Empty " });
+    res.status(400).send({ message: 'Content Cannot Be Empty ' });
   }
-  if(!req.body.adress.match(addressValid) || req.body.adress.length < 3) {
-    return res.status(400).send({ message: "Error: Invalid Adress"})
+  if (!req.body.adress.match(addressValid) || req.body.adress.length < 3) {
+    return res.status(400).send({ message: 'Error: Invalid Adress' });
   }
-  if(req.body.phoneNumber.length < 7) {
-    return res.status(400).send({ meessage: "Error: Phone Not Valid"})
+  if (req.body.phoneNumber.length < 7) {
+    return res.status(400).send({ meessage: 'Error: Phone Not Valid' });
   }
-  if(req.body.fulllname.length < 3) {
-    return res.status(400).send({ message: "Error: Invalid Builgind Name"})
+  if (req.body.fulllname.length < 3) {
+    return res.status(400).send({ message: 'Error: Invalid Builgind Name' });
   }
 
   const building = new Building({
@@ -41,7 +41,7 @@ exports.create = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || 'Something Went Wrong While Creating A New Building'
+          err.message || 'Something Went Wrong While Creating A New Building',
       });
     });
 };
@@ -51,7 +51,7 @@ exports.findOne = (req, res) => {
     .then((data) => {
       if (!data) {
         return res.status(404).send({
-          message: "That Building Doesn't Exist",
+          message: 'That Building Does not Exist',
         });
       }
       res.status(200).send(data);
@@ -66,22 +66,22 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const addressValid = /\w\s\d/;
   if (!req.body.address && !req.body.fullName && !req.body.phoneNumber) {
-    return res.status(400).send({ message: "Content Can't Be Empty" });
+    return res.status(400).send({ message: 'Content Cannot Be Empty' });
   }
   if (req.body.fulllname.length < 3) {
-    return res.status(400).send({ meessage: "Error: Name Not Valid"})
+    return res.status(400).send({ meessage: 'Error: Name Not Valid' });
   }
-  if(req.body.phoneNumber.length < 7) {
-    return res.status(400).send({ meessage: "Error: Phone Not Valid"})
+  if (req.body.phoneNumber.length < 7) {
+    return res.status(400).send({ meessage: 'Error: Phone Not Valid' });
   }
-  if(!req.body.adress.match(addressValid) || req.body.adress.length < 3) {
-    return res.status(400).send({ message: "Error: Invalid Adress"})
+  if (!req.body.adress.match(addressValid) || req.body.adress.length < 3) {
+    return res.status(400).send({ message: 'Error: Invalid Adress' });
   }
   Building.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: "Can't Update The Building That You Requested",
+          message: 'Cannot Update The Building That You Requested',
         });
       } else
         res
@@ -97,12 +97,12 @@ exports.update = (req, res) => {
 
 exports.delete = (req, res) => {
   Building.findOneAndRemove({ _id: req.params.id })
-    .then((data) =>
+    .then(() =>
       res.status(200).send({ message: 'Building Removed Successfully!' })
     )
     .catch((err) => {
-      res
-        .status(500)
-        .send({ message: err.message || 'Error Removing The Requested Building' });
+      res.status(500).send({
+        message: err.message || 'Error Removing The Requested Building',
+      });
     });
 };

@@ -2,13 +2,15 @@ const BoilerTypes = require('../models/boiler-types.js');
 
 exports.create = (req, res) => {
   const regex = /[A-Z]/;
-  if(req.body.name.length != 1 && req.body.name.match(regex)) {
-    return res.status(400).send({ message: "Error: Invalid Boiler Name" })
+  if (req.body.name.length != 1 && req.body.name.match(regex)) {
+    return res.status(400).send({ message: 'Error: Invalid Boiler Name' });
   }
-  if(req.body.description.length <= 0) {
-    return res.status(400).send({ message: "Error: Invalid Boiler Description" })
+  if (req.body.description.length <= 0) {
+    return res
+      .status(400)
+      .send({ message: 'Error: Invalid Boiler Description' });
   }
-  
+
   const boylerType = new BoilerTypes({
     name: req.body.name,
     description: req.body.description,
@@ -42,7 +44,7 @@ exports.findOne = (req, res) => {
     .then((data) => {
       if (!data) {
         return res.status(400).send({
-          message: "That Boiler Type Doesn't Exist",
+          message: 'That Boiler Type Does Not Exist',
         });
       }
       res.status(200).send(data);
@@ -56,11 +58,13 @@ exports.findOne = (req, res) => {
 
 exports.update = (req, res) => {
   const regex = /[A-Z]/;
-  if(req.body.name.length != 1 && req.body.name.match(regex)) {
-    return res.status(400).send({ message: "Error: Invalid Boiler Name" })
+  if (req.body.name.length != 1 && req.body.name.match(regex)) {
+    return res.status(400).send({ message: 'Error: Invalid Boiler Name' });
   }
-  if(req.body.description.length <= 0) {
-    return res.status(400).send({ message: "Error: Invalid Boiler Description" })
+  if (req.body.description.length <= 0) {
+    return res
+      .status(400)
+      .send({ message: 'Error: Invalid Boiler Description' });
   }
   BoilerTypes.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
     .then((data) => {
