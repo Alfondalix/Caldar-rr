@@ -72,7 +72,7 @@ exports.findOne = (req, res) => {
 
 exports.delete = (req, res) => {
   Companies.findOneAndRemove({ _id: req.params.id })
-    .then((data) => {
+    .then(() => {
       res.status(200).send({
         message: 'Company Removed Successfully!',
       });

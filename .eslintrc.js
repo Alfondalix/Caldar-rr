@@ -8,8 +8,5 @@ module.exports = {
   parserOptions: {
     ecnaVersion: 12,
   },
-  rules: {
-    semi: ['always'],
-    quotes: ['single'],
-  },
+  rules: {},
 };

@@ -97,7 +97,7 @@ exports.update = (req, res) => {
 
 exports.delete = (req, res) => {
   Building.findOneAndRemove({ _id: req.params.id })
-    .then((data) =>
+    .then(() =>
       res.status(200).send({ message: 'Building Removed Successfully!' })
     )
     .catch((err) => {
