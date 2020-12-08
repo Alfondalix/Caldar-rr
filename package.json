@@ -7,6 +7,7 @@
     "start": "node index.js",
     "dev": "nodemon index",
     "lint": "eslint .",
+    "prettier": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
