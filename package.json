@@ -8,6 +8,7 @@
     "dev": "nodemon index",
     "lint": "eslint .",
     "prettier": "prettier --write .",
+    "postinstall": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "eslint": "^7.15.0",
+    "husky": "^5.0.4",
     "nodemon": "^2.0.6",
     "prettier": "2.2.1"
   }
