@@ -17,16 +17,15 @@ exports.create = (req, res) => {
   if (!req.body.address || !req.body.fullName || !req.body.phoneNumber) {
     res.status(400).send({ message: 'Content Cannot Be Empty ' });
   }
-  if (!req.body.adress.match(addressValid) || req.body.adress.length < 3) {
-    return res.status(400).send({ message: 'Error: Invalid Adress' });
+  if (!req.body.address.match(addressValid) || req.body.address.length < 3) {
+    return res.status(400).send({ message: 'Error: Invalid address' });
   }
   if (req.body.phoneNumber.length < 7) {
     return res.status(400).send({ meessage: 'Error: Phone Not Valid' });
   }
-  if (req.body.fulllname.length < 3) {
+  if (req.body.fullName.length < 3) {
     return res.status(400).send({ message: 'Error: Invalid Builgind Name' });
   }
-
   const building = new Building({
     address: req.body.address,
     boilers: req.body.boilers,
@@ -74,9 +73,10 @@ exports.update = (req, res) => {
   if (req.body.phoneNumber.length < 7) {
     return res.status(400).send({ meessage: 'Error: Phone Not Valid' });
   }
-  if (!req.body.adress.match(addressValid) || req.body.adress.length < 3) {
-    return res.status(400).send({ message: 'Error: Invalid Adress' });
+  if (!req.body.address.match(addressValid) || req.body.address.length < 3) {
+    return res.status(400).send({ message: 'Error: Invalid address' });
   }
+
   Building.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
     .then((data) => {
       if (!data) {
