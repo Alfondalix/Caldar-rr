@@ -1,7 +1,4 @@
 const Appointments = require('../models/appointment.js');
-const Buildings = require('../models/buildings.js');
-const Boilers = require('../models/boilers.js');
-const Technicians = require('../models/technicians.js');
 
 exports.create = (req, res) => {
   const appointment = new Appointments({
@@ -42,7 +39,7 @@ exports.findOne = (req, res) => {
     .then((data) => {
       if (!data) {
         return res.status(400).send({
-          message: "That Appointment Type Does not Exist",
+          message: 'That Appointment Type Does not Exist',
         });
       }
       res.status(200).send(data);

@@ -7,8 +7,8 @@ const BoilersSchema = new mongoose.Schema({
   },
   idType: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
     ref: 'Boilers',
+    required: true,
   },
 });
 

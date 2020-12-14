@@ -9,6 +9,7 @@ const TechniciansSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Boilers',
+      required: true,
     },
   ],
   birthdate: {
