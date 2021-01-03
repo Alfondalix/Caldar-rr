@@ -88,7 +88,8 @@ exports.update = (req, res) => {
   const cuitValid = /^(20|23|27|30|33)([0-9]{9}|-[0-9]{8}-[0-9]{1})$/g;
   const emailValid = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   const addressValid = /\w\s\d/;
-  if (!req.body) {
+  console.log(req.body)
+  if (!req.body || req.body === {}) {
     return res.status(400).send({
       message: 'Data Cannot Be Empty',
     });
